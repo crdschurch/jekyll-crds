@@ -1,0 +1,7 @@
+require "jekyll"
+require "jekyll-crds/version"
+require "jekyll-crds/client"
+require "jekyll-crds/commands/crds"
+require "jekyll-crds/generators/env-generator"
+require "jekyll-crds/hooks/purgecss"
+require "jekyll-crds/hooks/typekit"
