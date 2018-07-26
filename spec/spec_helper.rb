@@ -1,4 +1,5 @@
 require "bundler/setup"
+Bundler.setup
 require "jekyll-crds"
 
 RSpec.configure do |config|

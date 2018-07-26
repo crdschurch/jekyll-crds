@@ -19,7 +19,6 @@ module Jekyll
         def content_blocks
           @content_blocks ||= self.class.get("/api/contentblock?category[]=common", @options).dig('contentblocks')
         end
-
     end
   end
 end
