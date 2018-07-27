@@ -1,6 +1,16 @@
+require "rspec"
 require "bundler/setup"
+require "pry"
 Bundler.setup
 require "jekyll-crds"
+require 'vcr'
+
+Dir['./spec/support/**/*.rb'].each { |f| require f }
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/vcr"
+  config.hook_into :webmock
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

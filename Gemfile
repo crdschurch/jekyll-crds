@@ -1,6 +1,17 @@
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-# Specify your gem's dependencies in crds-jekyll.gemspec
 gemspec
+
+gem 'rake'
+
+group :development do
+  gem 'pry'
+  gem 'jekyll', '~> 3.8.3'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'guard-rspec'
+  gem 'vcr'
+  gem 'webmock'
+end
