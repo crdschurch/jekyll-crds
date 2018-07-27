@@ -2,12 +2,18 @@ PATH
   remote: .
   specs:
     jekyll-crds (0.1.0)
+      activesupport
       httparty
       jekyll
 
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (5.2.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     coderay (1.1.2)
@@ -69,6 +75,7 @@ GEM
     lumberjack (1.0.13)
     mercenary (0.3.6)
     method_source (0.9.0)
+    minitest (5.11.3)
     multi_xml (0.6.0)
     nenv (0.3.0)
     notiffany (0.1.1)
@@ -107,6 +114,9 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     shellany (0.0.1)
     thor (0.20.0)
+    thread_safe (0.3.6)
+    tzinfo (1.2.5)
+      thread_safe (~> 0.1)
     vcr (4.0.0)
     webmock (3.4.2)
       addressable (>= 2.3.6)
