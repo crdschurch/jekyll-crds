@@ -1,6 +1,7 @@
 require "jekyll"
 require "jekyll-crds/version"
 require "jekyll-crds/client"
+require "jekyll-crds/env"
 require "jekyll-crds/commands/crds"
 require "jekyll-crds/generators/env-generator"
 require "jekyll-crds/hooks/purgecss"

@@ -1,3 +1,5 @@
+require 'active_support/core_ext/hash'
+
 class JekyllHelper
 
   class << self
@@ -61,5 +63,6 @@ class JekyllHelper
       Jekyll::Utils.deep_merge_hashes(default_config, site_config)
     end
   end
+
 
 end
