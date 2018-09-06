@@ -24,14 +24,13 @@ module Jekyll
         configure_streamspot_credentials
       end
 
-
       private
         def configure_shared_header
           @site.config['shared_header'] = {
             'app' => File.join(ENV['CRDS_APP_CLIENT_ENDPOINT'] || "https://#{env_prefix}.crossroads.net", ""),
             'cms' => File.join(ENV['CRDS_CMS_SERVER_ENDPOINT'] || "https://#{env_prefix}.crossroads.net/proxy/content/", ""),
             'img' => "https://#{env_prefix}.crossroads.net/proxy/gateway/api/image/profile/",
-            'prefix' => "#{env_prefix unless @site.config['env'] == 'production' }"
+            'prefix' => "#{env_prefix unless @site.config['jekyll_env'] == 'production' }"
           }
         end
 
