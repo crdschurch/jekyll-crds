@@ -14,7 +14,7 @@ module Jekyll
           production: 'www'
         }
         @site.config['jekyll_env'] = ENV['JEKYLL_ENV'] || 'development'
-        @site.config['gateway_server_endpoint'] = "https://gateway#{env_prefix}.crossroads.net/gateway/"
+        @site.config['gateway_server_endpoint'] = "https://#{env_prefix}.crossroads.net/proxy/gateway/"
         @site.config['imgix'] = {
           "find": ENV['IMGIX_SRC'],
           "replace": ENV['IMGIX_DOMAIN'],
