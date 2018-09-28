@@ -9,7 +9,7 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
       collections: %w(pages)
     )
 
-    ENV['URL'] = 'http://example.com'
+    ENV['DEPLOY_URL'] = 'http://example.com'
     ENV['IMGIX_SRC'] = 'contentful_url'
     ENV['IMGIX_DOMAIN'] = 'imgix_url'
     ENV["STREAMSPOT_ID"] = "abcdefg12345"
