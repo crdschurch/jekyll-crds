@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-crds (0.0.1)
+    jekyll-crds (0.0.2)
       activesupport
       httparty
       jekyll
@@ -9,7 +9,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.0)
+    activesupport (5.2.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -137,4 +137,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.1
+   1.16.4
