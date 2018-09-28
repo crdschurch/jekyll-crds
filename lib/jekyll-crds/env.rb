@@ -13,7 +13,6 @@ module Jekyll
           demo: 'demo',
           production: 'www'
         }
-        @site.config['url'] = ENV['URL'] || ''
         @site.config['jekyll_env'] = ENV['JEKYLL_ENV'] || 'development'
         @site.config['gateway_server_endpoint'] = "https://gateway#{env_prefix}.crossroads.net/gateway/"
         @site.config['imgix'] = {
