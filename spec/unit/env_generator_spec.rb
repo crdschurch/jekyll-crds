@@ -1,25 +1,20 @@
 require 'spec_helper'
 
 RSpec.describe Jekyll::Crds::EnvGenerator do
-
+  
   before do
     @site = JekyllHelper.scaffold(
       base_path: File.expand_path('./spec/dummy'),
       collections_dir: File.expand_path('./spec/dummy/collections'),
       collections: %w(pages)
     )
-
-    ENV['URL'] = 'http://example.com'
+    
     ENV['IMGIX_SRC'] = 'contentful_url'
     ENV['IMGIX_DOMAIN'] = 'imgix_url'
     ENV["STREAMSPOT_ID"] = "abcdefg12345"
     ENV["STREAMSPOT_API_KEY"] = "my_extra_awesome_key"
-
+    
     @gen = Jekyll::Crds::Env.new(@site)
-  end
-
-  it 'should set the site url' do
-    expect(@site.config['url']).to eq('http://example.com')
   end
 
   it 'should set the Jekyll env' do
@@ -59,10 +54,10 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     expect(@gen.send(:env_prefix)).to eq('www')
   end
 
-  it 'should return the correct Streamspot envs' do
+  it 'should return the correct Streamspot envs' do 
     @gen.send(:configure_streamspot_credentials)
     expect(@site.config['streamspotId']).to eq('abcdefg12345')
     expect(@site.config['streamspotKey']).to eq('my_extra_awesome_key')
   end
-
+  
 end
