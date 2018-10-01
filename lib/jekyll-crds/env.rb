@@ -42,6 +42,7 @@ module Jekyll
         def configure_streamspot_credentials
           @site.config['streamspotId'] = ENV['STREAMSPOT_ID']
           @site.config['streamspotKey'] = ENV['STREAMSPOT_API_KEY']
+          @site.config['streamspotPlayerId'] = ENV['STREAMSPOT_PLAYER_ID']
         end
 
     end

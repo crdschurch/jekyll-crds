@@ -13,6 +13,7 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     ENV['IMGIX_DOMAIN'] = 'imgix_url'
     ENV["STREAMSPOT_ID"] = "abcdefg12345"
     ENV["STREAMSPOT_API_KEY"] = "my_extra_awesome_key"
+    ENV["STREAMSPOT_PLAYER_ID"] = "2887fba1"
     
     @gen = Jekyll::Crds::Env.new(@site)
   end
@@ -58,6 +59,7 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     @gen.send(:configure_streamspot_credentials)
     expect(@site.config['streamspotId']).to eq('abcdefg12345')
     expect(@site.config['streamspotKey']).to eq('my_extra_awesome_key')
+    expect(@site.config['streamspotPlayerId']).to eq('2887fba1')
   end
   
 end
