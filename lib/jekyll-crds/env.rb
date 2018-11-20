@@ -17,7 +17,6 @@ module Jekyll
         else
           @site.config['gateway_server_endpoint'] = "https://gateway#{env_prefix}.crossroads.net/gateway/"
         end
-        binding.pry
         @site.config['imgix'] = {
           "find": ENV['IMGIX_SRC'],
           "replace": ENV['IMGIX_DOMAIN'],
