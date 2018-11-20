@@ -1,8 +1,6 @@
-
 module Jekyll
   module Crds
     class Env
-
       attr_accessor :site, :envs
 
       def initialize(site)
@@ -14,7 +12,12 @@ module Jekyll
           production: 'www'
         }
         @site.config['jekyll_env'] = ENV['JEKYLL_ENV'] || 'development'
-        @site.config['gateway_server_endpoint'] = "https://gateway#{env_prefix}.crossroads.net/gateway/"
+        if env_prefix == "www"
+          @site.config['gateway_server_endpoint'] = "https://gateway.crossroads.net/gateway/"
+        else
+          @site.config['gateway_server_endpoint'] = "https://gateway#{env_prefix}.crossroads.net/gateway/"
+        end
+        binding.pry
         @site.config['imgix'] = {
           "find": ENV['IMGIX_SRC'],
           "replace": ENV['IMGIX_DOMAIN'],
