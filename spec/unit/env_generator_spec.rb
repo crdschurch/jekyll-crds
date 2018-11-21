@@ -26,8 +26,13 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     expect(@site.config['default_image']).to eq('//imgix_url/default-image.jpg')
   end
 
-  it 'should set the gateway endpoint' do
-    expect(@site.config['gateway_server_endpoint']).to eq('https://gatewayint.crossroads.net/gateway/')
+  it 'should set the correct gateway endpoint' do
+    @site.config['jekyll_env'] = 'development'
+    expect(@gen.send(:configure_gateway_endpoint)).to eq('https://gatewayint.crossroads.net/gateway/')
+    @site.config['jekyll_env'] = 'production'
+    expect(@gen.send(:configure_gateway_endpoint)).to eq('https://gateway.crossroads.net/gateway/')
+    ENV['CRDS_GATEWAY_ENDPOINT'] = 'https://gateway.crossroads.net/gateway'
+    expect(@gen.send(:configure_gateway_endpoint)).to eq('https://gateway.crossroads.net/gateway')
   end
 
   it 'should configure the shared header endpoints' do

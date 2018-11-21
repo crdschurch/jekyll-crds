@@ -12,11 +12,7 @@ module Jekyll
           production: 'www'
         }
         @site.config['jekyll_env'] = ENV['JEKYLL_ENV'] || 'development'
-        if env_prefix == "www"
-          @site.config['gateway_server_endpoint'] = "https://gateway.crossroads.net/gateway/"
-        else
-          @site.config['gateway_server_endpoint'] = "https://gateway#{env_prefix}.crossroads.net/gateway/"
-        end
+        @site.config['gateway_server_endpoint'] = configure_gateway_endpoint
         @site.config['imgix'] = {
           "find": ENV['IMGIX_SRC'],
           "replace": ENV['IMGIX_DOMAIN'],
@@ -47,6 +43,9 @@ module Jekyll
           @site.config['streamspotPlayerId'] = ENV['STREAMSPOT_PLAYER_ID']
         end
 
+        def configure_gateway_endpoint
+          ENV['CRDS_GATEWAY_ENDPOINT'] || "https://gateway#{env_prefix unless @site.config['jekyll_env'] == 'production' }.crossroads.net/gateway/"
+        end
     end
   end
 end
