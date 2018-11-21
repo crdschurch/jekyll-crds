@@ -32,7 +32,7 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     @site.config['jekyll_env'] = 'production'
     expect(@gen.send(:configure_gateway_endpoint)).to eq('https://gateway.crossroads.net/gateway/')
     ENV['CRDS_GATEWAY_ENDPOINT'] = 'https://gateway.crossroads.net/gateway'
-    expect(@gen.send(:configure_gateway_endpoint)).to eq('https://gateway.crossroads.net/gateway')
+    expect(@gen.send(:configure_gateway_endpoint)).to eq('https://gateway.crossroads.net/gateway/')
   end
 
   it 'should configure the shared header endpoints' do
