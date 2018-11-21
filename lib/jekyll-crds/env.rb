@@ -44,7 +44,7 @@ module Jekyll
         end
 
         def configure_gateway_endpoint
-          ENV['CRDS_GATEWAY_ENDPOINT'] || "https://gateway#{env_prefix unless @site.config['jekyll_env'] == 'production' }.crossroads.net/gateway/"
+          File.join(ENV['CRDS_GATEWAY_ENDPOINT'] || "https://gateway#{env_prefix unless @site.config['jekyll_env'] == 'production' }.crossroads.net/gateway/", "")
         end
     end
   end
