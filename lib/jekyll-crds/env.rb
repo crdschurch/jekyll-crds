@@ -18,6 +18,7 @@ module Jekyll
           "replace": ENV['IMGIX_DOMAIN'],
         }
         @site.config['default_image'] = "//#{ENV['IMGIX_DOMAIN']}/default-image.jpg"
+        @site.config['url'] = ENV['SITE_URL'] if ENV['SITE_URL']
         configure_shared_header
         configure_streamspot_credentials
       end
