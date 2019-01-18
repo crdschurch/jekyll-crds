@@ -1,6 +1,10 @@
-require "jekyll"
-require "jekyll-crds/version"
-require "jekyll-crds/client"
-require "jekyll-crds/env"
-require "jekyll-crds/commands/crds"
-require "jekyll-crds/generators/env-generator"
+require 'jekyll'
+require 'jekyll-crds/version'
+require 'jekyll-crds/client'
+require 'jekyll-crds/env'
+require 'jekyll-crds/base'
+require 'jekyll-crds/silverstripe'
+require 'jekyll-crds/footer'
+require 'jekyll-crds/header'
+require 'jekyll-crds/commands/crds'
+require 'jekyll-crds/generators/env-generator'
