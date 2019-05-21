@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-crds (0.0.5)
+    jekyll-crds (1.0.0)
       activesupport
       httparty
       jekyll
