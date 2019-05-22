@@ -11,9 +11,7 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     
     ENV['IMGIX_SRC'] = 'contentful_url'
     ENV['IMGIX_DOMAIN'] = 'imgix_url'
-    ENV["STREAMSPOT_ID"] = "abcdefg12345"
-    ENV["STREAMSPOT_API_KEY"] = "my_extra_awesome_key"
-    ENV["STREAMSPOT_PLAYER_ID"] = "2887fba1"
+    ENV["STREAM_SCHEDULE_ENDPOINT"] = "https://aws-lamba-function/int/stream-schedule"
     
     @gen = Jekyll::Crds::Env.new(@site)
   end
@@ -60,11 +58,9 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     expect(@gen.send(:env_prefix)).to eq('www')
   end
 
-  it 'should return the correct Streamspot envs' do 
-    @gen.send(:configure_streamspot_credentials)
-    expect(@site.config['streamspotId']).to eq('abcdefg12345')
-    expect(@site.config['streamspotKey']).to eq('my_extra_awesome_key')
-    expect(@site.config['streamspotPlayerId']).to eq('2887fba1')
+  it 'should set the correct stream schedule endpoint ' do 
+    @gen.send(:configure_stream_schedule)
+    expect(@site.config['stream_schedule_endpoint']).to eq('https://aws-lamba-function/int/stream-schedule')
   end
   
 end

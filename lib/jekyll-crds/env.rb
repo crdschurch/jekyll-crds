@@ -20,7 +20,7 @@ module Jekyll
         @site.config['default_image'] = "//#{ENV['IMGIX_DOMAIN']}/default-image.jpg"
         @site.config['url'] = ENV['SITE_URL'] if ENV['SITE_URL']
         configure_shared_header
-        configure_streamspot_credentials
+        configure_stream_schedule
       end
 
 
@@ -38,10 +38,8 @@ module Jekyll
           @envs[@site.config['jekyll_env'].to_sym]
         end
 
-        def configure_streamspot_credentials
-          @site.config['streamspotId'] = ENV['STREAMSPOT_ID']
-          @site.config['streamspotKey'] = ENV['STREAMSPOT_API_KEY']
-          @site.config['streamspotPlayerId'] = ENV['STREAMSPOT_PLAYER_ID']
+        def configure_stream_schedule
+          @site.config['stream_schedule_endpoint'] = ENV['STREAM_SCHEDULE_ENDPOINT']
         end
 
         def configure_gateway_endpoint
