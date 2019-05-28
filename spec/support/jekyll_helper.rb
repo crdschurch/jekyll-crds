@@ -51,7 +51,8 @@ class JekyllHelper
       config_overrides = {
         "collections_dir" => options[:collections_dir],
         "destination" => options[:destination_path],
-        "source" => options[:source_path]
+        "source" => options[:source_path],
+        "skip_typekit" => true
       }
       # Option to override config values directly rather than reading an entire
       # file.
