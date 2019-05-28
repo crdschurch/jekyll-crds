@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    jekyll-crds (1.0.0)
+    jekyll-crds (1.1.0)
       activesupport
       httparty
       jekyll
@@ -141,4 +141,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.17.1
+   2.0.1
