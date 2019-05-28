@@ -2,8 +2,10 @@ require 'active_support/inflector'
 
 module Jekyll
   module Singularize
+    include ActiveSupport::Inflector
+
     def singularize(str)
-      str.singularize
+      (str || '').singularize
     end
   end
 end

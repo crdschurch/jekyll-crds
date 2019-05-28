@@ -35,10 +35,10 @@ module Jekyll
       return "https:#{page['meta']['image']['url']}" if page.to_h.dig('meta', 'image', 'url').present?
 
       unless (system_page_image = match_system_page(page['url'], 'image')).nil?
-        return imgix(system_page_image['url'])
+        return imgix(system_page_image['url'], site.config)
       end
 
-      image_url = imgix(page.to_h.dig('image', 'url')) || site.config['image']
+      image_url = imgix(page.to_h.dig('image', 'url'), site.config) || site.config['image']
       "https:#{escape(image_url)}"
     end
 

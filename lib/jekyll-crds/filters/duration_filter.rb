@@ -1,5 +1,8 @@
+require 'active_support/inflector'
+
 module Jekyll
   module DurationFilter
+    include ActiveSupport::Inflector
 
     def duration(seconds, format='short')
       return '' unless seconds.present?
