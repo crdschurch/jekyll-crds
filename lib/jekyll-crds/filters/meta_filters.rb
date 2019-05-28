@@ -45,7 +45,7 @@ module Jekyll
     private
 
     def match_system_page(url, field)
-      if(system_page = site.collections['system_pages'].docs.detect { |e| e.data['url'].chomp('/') == check_for_root(url).chomp('/') })
+      if(site.collections['system_pages'] && system_page = site.collections['system_pages'].docs.detect { |e| e.data['url'].chomp('/') == check_for_root(url).chomp('/') })
         system_page[field] if system_page[field].present?
       end
     end

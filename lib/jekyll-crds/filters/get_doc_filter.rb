@@ -8,7 +8,6 @@ module Jekyll
         doc = collection_from_obj(obj).detect { |doc| doc.data['id'] == obj['id'] }
         doc ? doc.to_liquid : nil
       rescue
-        binding.pry
       end
     end
 
@@ -20,7 +19,6 @@ module Jekyll
         docs = collection_from_obj(objs.first).select { |doc| ids.include?(doc.data['id']) }
         docs.map(&:to_liquid)
       rescue
-        binding.pry
       end
     end
 
@@ -35,7 +33,6 @@ module Jekyll
           return [] if obj.nil?
           site.collections[obj['content_type'].pluralize].docs
         rescue
-          binding.pry
         end
       end
 
