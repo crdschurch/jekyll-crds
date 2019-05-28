@@ -1,6 +1,3 @@
-require_relative '../../lib/utils/meta_util'
-require_relative '../../lib/utils/html_util'
-
 module CRDS
   module Filters
     module HtmlAndMetaUtilFilter
