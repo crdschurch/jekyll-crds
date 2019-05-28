@@ -2,3 +2,5 @@ collections_dir: collections
 collections:
   pages:
     output: false
+
+typekit_url: https://use.typekit.net/ccb3vpa.css
