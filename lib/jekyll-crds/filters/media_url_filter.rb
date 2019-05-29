@@ -8,8 +8,11 @@ module Jekyll
     end
 
     def append_video_params(item, arg)
-      item.url << "?"
-      arg ? item.url << arg : item.url << "autoPlay=true&sound=11"
+      if arg.present?
+        "#{item.url}?#{arg}"
+      else
+        "#{item.url}?autoPlay=true&sound=11"
+      end
     end
   end
   
