@@ -2,12 +2,9 @@ module Jekyll
   module MediaUrlFilter
 
     def media_url(item, arg = nil)
-      # binding.pry
-      if item.nil? 
-        return
+      unless item.nil? 
+        item["bitmovin_url"].nil? ? item.url : append_video_params(item, arg)
       end
-
-      item["bitmovin_url"].nil? ? item.url : append_video_params(item, arg)
     end
 
     def append_video_params(item, arg)
