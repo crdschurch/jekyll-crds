@@ -40,6 +40,9 @@ module Jekyll
 
         def configure_stream_schedule
           @site.config['stream_schedule_endpoint'] = ENV['STREAM_SCHEDULE_ENDPOINT']
+          @site.config['streamspotKey'] = ENV['STREAMSPOT_API_KEY']
+          @site.config['streamspotId'] = ENV['STREAMSPOT_ID']
+          @site.config['streamspotPlayerId'] = ENV['STREAMSPOT_PLAYER_ID']
         end
 
         def configure_gateway_endpoint
