@@ -27,6 +27,10 @@ Or install it yourself as:
 
 Add `bundle exec jekyll crds` to your build process or use it one-off via command line.
 
+## Adding filters
+
+When adding a new filter, you must add it to the jekyll-crds.rb
+
 ## License
 
 The gem is available as open source under the terms of the [BSD-3 License](https://opensource.org/licenses/BSD-3-Clause).
