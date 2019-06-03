@@ -43,6 +43,7 @@ module Jekyll
           @site.config['streamspotKey'] = ENV['STREAMSPOT_API_KEY']
           @site.config['streamspotId'] = ENV['STREAMSPOT_ID']
           @site.config['streamspotPlayerId'] = ENV['STREAMSPOT_PLAYER_ID']
+          @site.config['CRDS_SCHEDULE_ENDPOINT'] = ENV['CRDS_SCHEDULE_ENDPOINT']
         end
 
         def configure_gateway_endpoint
