@@ -1,7 +1,7 @@
 module Jekyll
   module StripFilter
-    def strip_liquid(string)
-      string.gsub!(/{(.+)}/, '');
+    def strip_liquid(str)
+      str.gsub(/({%.+%})/, '');
     end
   end
 end
