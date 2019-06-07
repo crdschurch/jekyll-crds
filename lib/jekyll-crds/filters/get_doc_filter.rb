@@ -16,8 +16,11 @@ module Jekyll
         return nil if objs.nil?
         return get_doc(objs) unless objs.is_a?(Array)
         ids = objs.collect { |obj| obj['id'] }
-        docs = collection_from_obj(objs.first).select { |doc| ids.include?(doc.data['id']) }
-        docs.map(&:to_liquid)
+
+        docs = objs.collect do |obj|
+          collection_from_obj(obj).select {|doc| ids.include?(doc.data['id']) }
+        end
+        docs.flatten.uniq.map(&:to_liquid)
       rescue
       end
     end
@@ -33,6 +36,7 @@ module Jekyll
           return [] if obj.nil?
           site.collections[obj['content_type'].pluralize].docs
         rescue
+          []
         end
       end
 
