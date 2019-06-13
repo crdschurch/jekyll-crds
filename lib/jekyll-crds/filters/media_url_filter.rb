@@ -3,7 +3,8 @@ module Jekyll
 
     def media_url(item, arg = nil)
       unless item.nil? 
-        item["bitmovin_url"].nil? ? item.url : append_video_params(item, arg)
+        item["bitmovin_url"].nil? || item["related_videos"].select { |video| video["bitmovin_url"] }.length <= 0 ? item.url : append_video_params(item, arg)
+
       end
     end
 
