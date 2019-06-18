@@ -21,6 +21,7 @@ module Jekyll
         @site.config['url'] = ENV['SITE_URL'] if ENV['SITE_URL']
         configure_shared_header
         configure_stream_schedule
+        configure_envs
       end
 
 
@@ -43,6 +44,10 @@ module Jekyll
           @site.config['streamspotKey'] = ENV['STREAMSPOT_API_KEY']
           @site.config['streamspotId'] = ENV['STREAMSPOT_ID']
           @site.config['streamspotPlayerId'] = ENV['STREAMSPOT_PLAYER_ID']
+        end
+
+        def configure_envs
+          @site.config['google_api_key'] = ENV['GOOGLE_API_KEY']
         end
 
         def configure_gateway_endpoint

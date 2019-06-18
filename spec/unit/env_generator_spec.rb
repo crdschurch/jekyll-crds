@@ -12,6 +12,7 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     ENV['IMGIX_SRC'] = 'contentful_url'
     ENV['IMGIX_DOMAIN'] = 'imgix_url'
     ENV["STREAM_SCHEDULE_ENDPOINT"] = "https://aws-lamba-function/int/stream-schedule"
+    ENV["GOOGLE_API_KEY"] = "1234657849"
     
     @gen = Jekyll::Crds::Env.new(@site)
   end
@@ -61,6 +62,10 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
   it 'should set the correct stream schedule endpoint ' do 
     @gen.send(:configure_stream_schedule)
     expect(@site.config['stream_schedule_endpoint']).to eq('https://aws-lamba-function/int/stream-schedule')
+  end
+
+  it 'should set the Google Api Key' do
+    expect(@site.config['google_api_key']).to eq('1234657849')
   end
   
 end
