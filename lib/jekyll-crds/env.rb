@@ -21,6 +21,7 @@ module Jekyll
         @site.config['url'] = ENV['SITE_URL'] if ENV['SITE_URL']
         configure_shared_header
         configure_stream_schedule
+        configure_bitmovin_license
         configure_envs
       end
 
@@ -44,6 +45,11 @@ module Jekyll
           @site.config['streamspotKey'] = ENV['STREAMSPOT_API_KEY']
           @site.config['streamspotId'] = ENV['STREAMSPOT_ID']
           @site.config['streamspotPlayerId'] = ENV['STREAMSPOT_PLAYER_ID']
+        end
+
+        def configure_bitmovin_license
+          @site.config['bitmovin_player_license'] = ENV['BITMOVIN_PLAYER_LICENSE']
+          @site.config['bitmovin_analytics_license'] = ENV['BITMOVIN_ANALYTICS_LICENSE']
         end
 
         def configure_envs

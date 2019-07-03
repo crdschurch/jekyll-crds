@@ -13,6 +13,8 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
     ENV['IMGIX_DOMAIN'] = 'imgix_url'
     ENV["STREAM_SCHEDULE_ENDPOINT"] = "https://aws-lamba-function/int/stream-schedule"
     ENV["GOOGLE_API_KEY"] = "1234657849"
+    ENV['BITMOVIN_PLAYER_LICENSE'] = "BMplayer"
+    ENV['BITMOVIN_ANALYTICS_LICENSE'] = "BManalytics"
     
     @gen = Jekyll::Crds::Env.new(@site)
   end
@@ -66,6 +68,11 @@ RSpec.describe Jekyll::Crds::EnvGenerator do
 
   it 'should set the Google Api Key' do
     expect(@site.config['google_api_key']).to eq('1234657849')
+  end
+
+  it 'should set the bitmovin licenses' do
+    expect(@site.config['bitmovin_player_license']).to eq('BMplayer')
+    expect(@site.config['bitmovin_analytics_license']).to eq('BManalytics')
   end
   
 end
