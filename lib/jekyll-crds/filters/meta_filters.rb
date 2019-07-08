@@ -7,7 +7,10 @@ module Jekyll
 
       return page['meta']['title'] if page.to_h.dig('meta', 'title').present?
 
-      unless (system_page_title = match_system_page(page['url'], 'title')).nil?
+      # crds-net will use 'permalink' ; crds-media will use 'url'
+      # crds-media does not have a permalink, so it will default to url
+      url_value = page['permalink'] ? page['permalink'] : page['url']
+      unless (system_page_title = match_system_page(url_value, 'title')).nil?
         return system_page_title
       end
 
