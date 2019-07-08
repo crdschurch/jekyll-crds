@@ -7,10 +7,7 @@ module Jekyll
 
       return page['meta']['title'] if page.to_h.dig('meta', 'title').present?
 
-      # crds-net will use 'permalink' ; crds-media will use 'url'
-      # crds-media does not have a permalink, so it will default to url
-      url_value = page['permalink'] ? page['permalink'] : page['url']
-      unless (system_page_title = match_system_page(url_value, 'title')).nil?
+      unless (system_page_title = match_system_page(get_url(page), 'title')).nil?
         return system_page_title
       end
 
@@ -23,7 +20,7 @@ module Jekyll
     def meta_description(page)
       return page['meta']['description'] if page.to_h.dig('meta', 'description').present?
 
-      unless (system_page_description = match_system_page(page['url'], 'description')).nil?
+      unless (system_page_description = match_system_page(get_url(page), 'description')).nil?
         return system_page_description
       end
 
@@ -37,7 +34,7 @@ module Jekyll
     def meta_image(page)
       return "https:#{page['meta']['image']['url']}" if page.to_h.dig('meta', 'image', 'url').present?
 
-      unless (system_page_image = match_system_page(page['url'], 'image')).nil?
+      unless (system_page_image = match_system_page(get_url(page), 'image')).nil?
         return imgix(system_page_image['url'], site.config)
       end
 
@@ -57,6 +54,12 @@ module Jekyll
       # crds-net and crds-media both have a / page
       # this will use the /media system page when crds-media evaluates it's own landing page
       url == "/" ? url = "/media" : url
+    end
+
+    def get_url(page)
+      # crds-net will use 'permalink' ; crds-media will use 'url'
+      # crds-media does not have a permalink, so it will default to url
+      page['permalink'] ? page['permalink'] : page['url']
     end
 
   end
