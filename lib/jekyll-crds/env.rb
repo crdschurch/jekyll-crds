@@ -13,6 +13,8 @@ module Jekyll
         }
         @site.config['jekyll_env'] = ENV['JEKYLL_ENV'] || 'development'
         @site.config['gateway_server_endpoint'] = configure_gateway_endpoint
+        @site.config['okta_client_id'] = ENV['OKTA_CLIENT_ID']
+        @site.config['okta_oauth_base_url'] = ENV['OKTA_OAUTH_BASE_URL']
         @site.config['imgix'] = {
           "find": ENV['IMGIX_SRC'],
           "replace": ENV['IMGIX_DOMAIN'],
