@@ -3,7 +3,7 @@ module Jekyll
     def card_image(doc)
       item = doc.instance_variable_get('@obj').try('data')
       case item.dig('content_type')
-      when 'song'
+      when 'song', 'album'
         item.dig('bg_image', 'url')
       when 'message'
         item.dig('background_image', 'url')
