@@ -1,12 +1,13 @@
 class EmbeddableVideo
-  def initialize(video)
-    @contentful_id = video['contentful_id']
-    @video = EmbeddableVideo.parse_video_url(video['source_url'])
+  def initialize(obj)
+    @obj = obj
+    @video = EmbeddableVideo.parse_video_url(obj['source_url'])
   end
 
   def to_s
     if @video
-      transcript = @video['transcript']
+      transcript = @obj['transcript']
+      contentful_id = @obj['contentful_id']
       if @video[:provider] == 'youtube'
         embed_url = "https://www.youtube.com/embed/#{@video[:id]}"
       elsif video[:provider] == 'vimeo'
