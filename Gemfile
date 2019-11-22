@@ -6,7 +6,7 @@ gem 'rake'
 
 group :development do
   gem 'pry'
-  gem 'jekyll', '~> 3.8.3'
+  gem 'jekyll', '~> 4.0.0'
 end
 
 group :test do
