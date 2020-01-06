@@ -20,11 +20,13 @@ module Jekyll
     def meta_description(page)
       return page['meta']['description'] if page.to_h.dig('meta', 'description').present?
 
-      unless (system_page_description = match_system_page(get_url(page), 'description')).nil?
+      system_page_description = match_system_page(get_url(page), 'description')
+
+      if system_page_description.present?
         return system_page_description
       end
 
-      attrs = %w{lead description body}
+      attrs = %w{lead_text lead description body}
       desc = attrs.map { |a| page[a].try(:strip) }.reject(&:blank?).first || site.config['description']
       html = markdownify(desc)
       text = strip_html(html).remove("\n")
@@ -45,8 +47,11 @@ module Jekyll
     private
 
     def match_system_page(url, field)
-      if(site.collections['system_pages'] && system_page = site.collections['system_pages'].docs.detect { |e| e.data['url'].chomp('/') == check_for_root(url).chomp('/') })
-        system_page[field] if system_page[field].present?
+      if site.collections['system_pages']
+        system_page = site.collections['system_pages'].docs.detect { |e| e.data['url'].chomp('/') == check_for_root(url).chomp('/') }
+        if system_page.present? && system_page[field].present?
+          system_page[field]
+        end
       end
     end
 
