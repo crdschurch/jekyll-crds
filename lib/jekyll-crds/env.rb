@@ -16,6 +16,7 @@ module Jekyll
         @site.config['okta_client_id'] = ENV['OKTA_CLIENT_ID']
         @site.config['okta_oauth_base_url'] = ENV['OKTA_OAUTH_BASE_URL']
         @site.config['crds_gql_endpoint'] = ENV['CRDS_GQL_ENDPOINT']
+        @site.config['crds_music_endpoint'] = ENV['CRDS_MUSIC_ENDPOINT']
         @site.config['imgix'] = {
           "find": ENV['IMGIX_SRC'],
           "replace": ENV['IMGIX_DOMAIN'],
