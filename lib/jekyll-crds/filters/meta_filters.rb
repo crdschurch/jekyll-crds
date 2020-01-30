@@ -67,6 +67,15 @@ module Jekyll
       page['permalink'] ? page['permalink'] : page['url']
     end
 
+    def get_canonical_host(page)
+      if page['distribution_channels']
+        distributionChannels = page['distribution_channels'].select{ |channel| channel.canonical? }
+        end
+
+        return distributionChannels.first["site"]
+      end
+    end
+
   end
 end
 
