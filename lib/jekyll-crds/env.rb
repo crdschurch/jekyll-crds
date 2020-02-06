@@ -23,6 +23,7 @@ module Jekyll
         }
         @site.config['default_image'] = "//#{ENV['IMGIX_DOMAIN']}/default-image.jpg"
         @site.config['url'] = ENV['SITE_URL'] if ENV['SITE_URL']
+        @site.config['focus_mission_url'] = ENV['CRDS_FOCUS_MISSION'] if ENV['CRDS_FOCUS_MISSION']
         configure_shared_header
         configure_stream_schedule
         configure_bitmovin_license
