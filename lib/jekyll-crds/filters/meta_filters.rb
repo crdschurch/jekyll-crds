@@ -44,6 +44,13 @@ module Jekyll
       "https:#{escape(image_url)}"
     end
 
+    def get_canonical_host(page)
+      return nil if page['distribution_channels'].nil?
+      host = page['distribution_channels'].detect { |channel| channel['canonical'].present? }
+      return nil unless host.present?
+      page['url'].chomp('index.html').prepend(host['site']).prepend('https://')
+    end
+
     private
 
     def match_system_page(url, field)
@@ -66,7 +73,7 @@ module Jekyll
       # crds-media does not have a permalink, so it will default to url
       page['permalink'] ? page['permalink'] : page['url']
     end
-
+    
   end
 end
 
