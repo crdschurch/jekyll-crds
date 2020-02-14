@@ -48,6 +48,7 @@ module Jekyll
       return nil if page['distribution_channels'].nil?
       host = page['distribution_channels'].detect { |channel| channel['canonical'].present? }
       return nil unless host.present?
+      return nil if page['url'].nil?
       page['url'].chomp('index.html').prepend(host['site']).prepend('https://')
     end
 
