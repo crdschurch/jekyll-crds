@@ -5,7 +5,7 @@ module Jekyll
 
     def meta_title(page)
 
-      return page['meta']['title'] if page.to_h.dig('meta', 'title').present?
+      return "#{escape(page['meta']['title'])} | #{escape(site.config['title'])}" if page.to_h.dig('meta', 'title').present?
 
       unless (system_page_title = match_system_page(get_url(page), 'title')).nil?
         return system_page_title
