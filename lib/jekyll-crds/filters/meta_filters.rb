@@ -34,7 +34,11 @@ module Jekyll
     end
 
     def meta_image(page)
-      return "https:#{page['meta']['image']['url']}" if page.to_h.dig('meta', 'image', 'url').present?
+      id = page['meta']['id'] if page.to_h.dig('meta', 'id').present?
+      if id
+        meta = site.collections['meta'].docs.detect{ |doc| doc.data.dig('contentful_id') == id}
+        return meta.data.dig('image', 'url') unless meta.nil? || meta.data.nil?
+      end
 
       unless (system_page_image = match_system_page(get_url(page), 'image')).nil?
         return imgix(system_page_image['url'], site.config)
