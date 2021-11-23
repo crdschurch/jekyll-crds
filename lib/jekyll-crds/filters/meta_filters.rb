@@ -34,7 +34,7 @@ module Jekyll
     end
 
     def meta_image(page)
-      id = page['meta']['id'] if page.to_h.dig('meta', 'id').present?
+      id = page.to_h.dig('meta', 'id')
       if id
         meta = site.collections['meta'].docs.detect{ |doc| doc.data.dig('contentful_id') == id}
         return meta.data.dig('image', 'url') unless meta.nil? || meta.data.nil?
